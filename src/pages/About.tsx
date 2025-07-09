@@ -72,7 +72,7 @@ const About = () => {
             </Badge>
             <h2 className="text-4xl font-bold text-foreground mb-6">
               Menghadirkan{" "}
-              <span className="bg-gradient-hero bg-clip-text text-transparent">
+              <span className="text-gradient-hero">
                 Solusi Digital
               </span>{" "}
               Terbaik

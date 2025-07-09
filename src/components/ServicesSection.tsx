@@ -79,12 +79,10 @@ const ServicesSection = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4">
-            🎯 Layanan Unggulan
-          </Badge>
+   
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Layanan{" "}
-            <span className="bg-gradient-hero bg-clip-text text-transparent">
+            <span className="text-gradient-hero">
               Profesional
             </span>
           </h2>

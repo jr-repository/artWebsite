@@ -1,14 +1,17 @@
-import { Check, Star, Zap, Crown, Sparkles } from "lucide-react";
+import { Check, Star, Zap, Crown, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { useState } from "react";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const PricingSection = () => {
+  const [expandedCards, setExpandedCards] = useState<{ [key: string]: boolean }>({});
   const packages = [
     {
       name: "Basic",
@@ -22,16 +25,16 @@ const PricingSection = () => {
         "Mobile Responsive",
         "Contact Form",
         "Basic SEO Setup",
-        "Free Domain (.com/.id)",
-        "1 Tahun Hosting",
+        "Free Domain (.com/.my.id)",
+        "3 Bulan Hosting",
         "SSL Certificate",
-        "1x Revisi"
+        "Bebas Revisi"
       ],
       notIncluded: [
-        "Custom Design",
-        "Database Integration",
-        "E-commerce Features",
-        "Advanced Analytics"
+        // "Custom Design",
+        // "Database Integration",
+        // "E-commerce Features",
+        // "Advanced Analytics"
       ],
       popular: false,
       color: "from-blue-500 to-cyan-500"
@@ -48,18 +51,18 @@ const PricingSection = () => {
         "Mobile Responsive",
         "Contact Form & Maps",
         "Advanced SEO Setup",
-        "Free Domain (.com/.id)",
+        "Free Domain (.com)",
         "1 Tahun Hosting",
         "SSL Certificate",
-        "3x Revisi",
+        "Bebas Revisi",
         "Basic Analytics",
         "Social Media Integration",
         "Speed Optimization"
       ],
       notIncluded: [
-        "E-commerce Features",
-        "Membership System",
-        "Advanced Integrations"
+        // "E-commerce Features",
+        // "Membership System",
+        // "Advanced Integrations"
       ],
       popular: true,
       color: "from-purple-500 to-pink-500"
@@ -124,12 +127,9 @@ const PricingSection = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <Badge variant="secondary" className="mb-4">
-            💰 Paket Harga
-          </Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Pilih{" "}
-            <span className="bg-gradient-hero bg-clip-text text-transparent">
+            <span className="text-gradient-hero font-extrabold">
               Paket Terbaik
             </span>
           </h2>
@@ -181,20 +181,60 @@ const PricingSection = () => {
                 </CardHeader>
                 
                 <CardContent>
-                  <ul className="space-y-3 mb-8">
-                    {pkg.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-foreground">{feature}</span>
-                      </li>
-                    ))}
-                    {pkg.notIncluded.map((feature, idx) => (
-                      <li key={idx} className="flex items-start space-x-3 opacity-50">
-                        <div className="w-5 h-5 border-2 border-gray-300 rounded-full mt-0.5 flex-shrink-0"></div>
-                        <span className="text-sm text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="mb-8">
+                    {/* Show first 6 features */}
+                    <ul className="space-y-3 mb-4">
+                      {pkg.features.slice(0, 6).map((feature, idx) => (
+                        <li key={idx} className="flex items-start space-x-3">
+                          <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-foreground">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Collapsible for remaining features */}
+                    {pkg.features.length > 6 && (
+                      <Collapsible open={expandedCards[pkg.name]} onOpenChange={() => 
+                        setExpandedCards(prev => ({ ...prev, [pkg.name]: !prev[pkg.name] }))
+                      }>
+                        <CollapsibleTrigger asChild>
+                          <Button variant="ghost" size="sm" className="w-full justify-center mb-4">
+                            {expandedCards[pkg.name] ? (
+                              <>
+                                Sembunyikan Detail <ChevronUp className="w-4 h-4 ml-1" />
+                              </>
+                            ) : (
+                              <>
+                                Lihat Semua Fitur ({pkg.features.length - 6} lainnya) <ChevronDown className="w-4 h-4 ml-1" />
+                              </>
+                            )}
+                          </Button>
+                        </CollapsibleTrigger>
+                        <CollapsibleContent>
+                          <ul className="space-y-3 mb-4">
+                            {pkg.features.slice(6).map((feature, idx) => (
+                              <li key={idx + 6} className="flex items-start space-x-3">
+                                <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                <span className="text-sm text-foreground">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </CollapsibleContent>
+                      </Collapsible>
+                    )}
+
+                    {/* Not included features */}
+                    {pkg.notIncluded.length > 0 && (
+                      <ul className="space-y-3">
+                        {pkg.notIncluded.map((feature, idx) => (
+                          <li key={idx} className="flex items-start space-x-3 opacity-50">
+                            <div className="w-5 h-5 border-2 border-gray-300 rounded-full mt-0.5 flex-shrink-0"></div>
+                            <span className="text-sm text-muted-foreground">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                   
                   <Button 
                     variant={pkg.popular ? "hero" : "outline"} 
@@ -258,20 +298,60 @@ const PricingSection = () => {
                     </CardHeader>
                     
                     <CardContent>
-                      <ul className="space-y-3 mb-8">
-                        {pkg.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start space-x-3">
-                            <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-foreground">{feature}</span>
-                          </li>
-                        ))}
-                        {pkg.notIncluded.map((feature, idx) => (
-                          <li key={idx} className="flex items-start space-x-3 opacity-50">
-                            <div className="w-5 h-5 border-2 border-gray-300 rounded-full mt-0.5 flex-shrink-0"></div>
-                            <span className="text-sm text-muted-foreground">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="mb-8">
+                        {/* Show first 6 features */}
+                        <ul className="space-y-3 mb-4">
+                          {pkg.features.slice(0, 6).map((feature, idx) => (
+                            <li key={idx} className="flex items-start space-x-3">
+                              <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-foreground">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* Collapsible for remaining features */}
+                        {pkg.features.length > 6 && (
+                          <Collapsible open={expandedCards[`${pkg.name}-mobile`]} onOpenChange={() => 
+                            setExpandedCards(prev => ({ ...prev, [`${pkg.name}-mobile`]: !prev[`${pkg.name}-mobile`] }))
+                          }>
+                            <CollapsibleTrigger asChild>
+                              <Button variant="ghost" size="sm" className="w-full justify-center mb-4">
+                                {expandedCards[`${pkg.name}-mobile`] ? (
+                                  <>
+                                    Sembunyikan Detail <ChevronUp className="w-4 h-4 ml-1" />
+                                  </>
+                                ) : (
+                                  <>
+                                    Lihat Semua Fitur ({pkg.features.length - 6} lainnya) <ChevronDown className="w-4 h-4 ml-1" />
+                                  </>
+                                )}
+                              </Button>
+                            </CollapsibleTrigger>
+                            <CollapsibleContent>
+                              <ul className="space-y-3 mb-4">
+                                {pkg.features.slice(6).map((feature, idx) => (
+                                  <li key={idx + 6} className="flex items-start space-x-3">
+                                    <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                    <span className="text-sm text-foreground">{feature}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </CollapsibleContent>
+                          </Collapsible>
+                        )}
+
+                        {/* Not included features */}
+                        {pkg.notIncluded.length > 0 && (
+                          <ul className="space-y-3">
+                            {pkg.notIncluded.map((feature, idx) => (
+                              <li key={idx} className="flex items-start space-x-3 opacity-50">
+                                <div className="w-5 h-5 border-2 border-gray-300 rounded-full mt-0.5 flex-shrink-0"></div>
+                                <span className="text-sm text-muted-foreground">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
                       
                       <Button 
                         variant={pkg.popular ? "hero" : "outline"} 
@@ -327,7 +407,7 @@ const PricingSection = () => {
                 Berapa lama waktu pengerjaan?
               </h4>
               <p className="text-muted-foreground">
-                Waktu pengerjaan berbeda untuk setiap paket. Basic (7-10 hari), Professional (14-21 hari), Premium (21-30 hari). Waktu dapat disesuaikan dengan kebutuhan urgent.
+                Waktu pengerjaan berbeda untuk setiap paket. Basic (3-4 hari), Professional (4-7 hari), Premium (7-14 hari). Waktu dapat disesuaikan dengan kebutuhan urgent.
               </p>
             </div>
             <div className="bg-white rounded-lg p-6 shadow-soft">

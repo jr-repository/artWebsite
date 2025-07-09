@@ -47,6 +47,10 @@ All colors MUST be HSL.
     --gradient-midnight: linear-gradient(135deg, hsl(224 76% 20%), hsl(217 91% 54%));
     --gradient-hero: linear-gradient(135deg, hsl(217 91% 54%) 0%, hsl(194 100% 60%) 100%);
     --gradient-card: linear-gradient(135deg, hsl(217 91% 98%) 0%, hsl(217 91% 95%) 100%);
+    
+    /* Text Gradients */
+    --text-gradient-hero: linear-gradient(135deg, hsl(217 91% 54%) 0%, hsl(194 100% 60%) 100%);
+    --text-gradient-primary: linear-gradient(135deg, hsl(217 91% 45%) 0%, hsl(217 91% 65%) 100%);
 
     /* Shadows */
     --shadow-soft: 0 2px 20px -2px hsl(217 91% 54% / 0.08);
@@ -126,6 +130,20 @@ All colors MUST be HSL.
     background: var(--gradient-card);
   }
   
+  .text-gradient-hero {
+    background: var(--text-gradient-hero);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .text-gradient-primary {
+    background: var(--text-gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
   .shadow-soft {
     box-shadow: var(--shadow-soft);
   }
@@ -140,16 +158,28 @@ All colors MUST be HSL.
 }
 
 /* Swiper customization */
-.pricing-swiper .swiper-pagination-bullet {
+.pricing-swiper .swiper-pagination-bullet,
+.portfolio-swiper .swiper-pagination-bullet,
+.blog-swiper .swiper-pagination-bullet,
+.testimonials-swiper .swiper-pagination-bullet {
   background: hsl(var(--primary));
   opacity: 0.5;
 }
 
-.pricing-swiper .swiper-pagination-bullet-active {
+.pricing-swiper .swiper-pagination-bullet-active,
+.portfolio-swiper .swiper-pagination-bullet-active,
+.blog-swiper .swiper-pagination-bullet-active,
+.testimonials-swiper .swiper-pagination-bullet-active {
   opacity: 1;
 }
 
 .pricing-swiper .swiper-button-next,
-.pricing-swiper .swiper-button-prev {
+.pricing-swiper .swiper-button-prev,
+.portfolio-swiper .swiper-button-next,
+.portfolio-swiper .swiper-button-prev,
+.blog-swiper .swiper-button-next,
+.blog-swiper .swiper-button-prev,
+.testimonials-swiper .swiper-button-next,
+.testimonials-swiper .swiper-button-prev {
   color: hsl(var(--primary));
 }

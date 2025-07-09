@@ -1,6 +1,11 @@
 import { Star, Quote } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -11,14 +16,6 @@ const TestimonialsSection = () => {
       rating: 5,
       text: "Website toko online yang dibuat Artweb sangat membantu bisnis saya. Desainnya menarik dan mudah digunakan. Penjualan online meningkat 300% setelah website live!",
       project: "E-commerce Website"
-    },
-    {
-      name: "Sari Dewi",
-      role: "Founder, Catering Sari Rasa",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b67b1c81?w=150&h=150&fit=crop&crop=face",
-      rating: 5,
-      text: "Pelayanan Artweb sangat profesional dan responsif. Website company profile yang dibuat sangat sesuai dengan harapan. Terima kasih tim Artweb!",
-      project: "Company Profile"
     },
     {
       name: "Andi Wijaya",
@@ -70,12 +67,10 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4">
-            ⭐ Testimoni Klien
-          </Badge>
+       
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Apa Kata{" "}
-            <span className="bg-gradient-hero bg-clip-text text-transparent">
+            <span className="text-gradient-hero font-extrabold">
               Klien Kami
             </span>
           </h2>
@@ -84,48 +79,70 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-none shadow-soft hover:shadow-medium transition-all duration-300 hover:scale-105">
-              <CardContent className="p-6 relative">
-                {/* Quote Icon */}
-                <div className="absolute -top-4 left-6">
-                  <div className="bg-gradient-hero p-2 rounded-full">
-                    <Quote className="w-4 h-4 text-white" />
-                  </div>
-                </div>
+        {/* Auto-sliding Testimonials Carousel */}
+        <div className="mb-8" data-aos="fade-up">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+            className="testimonials-swiper"
+          >
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index}>
+                <Card className="border-none shadow-soft hover:shadow-medium transition-all duration-300 h-full">
+                  <CardContent className="p-6 relative h-full flex flex-col">
+                 
 
-                {/* Rating */}
-                <div className="flex items-center space-x-1 mb-4 mt-4">
-                  {renderStars(testimonial.rating)}
-                </div>
+                    {/* Rating */}
+                    <div className="flex items-center space-x-1 mb-4 mt-4">
+                      {renderStars(testimonial.rating)}
+                    </div>
 
-                {/* Testimonial Text */}
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  "{testimonial.text}"
-                </p>
+                    {/* Testimonial Text */}
+                    <p className="text-muted-foreground mb-6 leading-relaxed flex-grow">
+                      "{testimonial.text}"
+                    </p>
 
-                {/* Client Info */}
-                <div className="flex items-center space-x-4">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                  <div>
-                    <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  </div>
-                </div>
+                    {/* Client Info */}
+                    <div className="flex items-center space-x-4">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full object-cover"
+                      />
+                      <div>
+                        <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
+                        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                      </div>
+                    </div>
 
-                {/* Project Badge */}
-                <Badge variant="outline" className="absolute top-4 right-4">
-                  {testimonial.project}
-                </Badge>
-              </CardContent>
-            </Card>
-          ))}
+                    {/* Project Badge */}
+                    <Badge variant="outline" className="absolute top-4 right-4">
+                      {testimonial.project}
+                    </Badge>
+                  </CardContent>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         {/* Statistics */}

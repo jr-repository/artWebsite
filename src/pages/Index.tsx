@@ -4,9 +4,11 @@ import "aos/dist/aos.css";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
+import RecentPortfolioSection from "@/components/RecentPortfolioSection";
+import RecentBlogSection from "@/components/RecentBlogSection";
 import ProcessSection from "@/components/ProcessSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import ContactSection from "@/components/ContactSection";
+import CTABannerSection from "@/components/CTABannerSection";
 import FooterSection from "@/components/FooterSection";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -25,9 +27,11 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <ServicesSection />
+      <RecentPortfolioSection />
+      <RecentBlogSection />
       <ProcessSection />
       <TestimonialsSection />
-      <ContactSection />
+      <CTABannerSection />
       <FooterSection />
       <ScrollToTop />
     </div>

@@ -19,7 +19,7 @@ const Logo = ({ className = "", size = 'md' }: LogoProps) => {
         alt="Artweb Logo" 
         className={`${sizeClasses[size]} mr-3`}
       />
-      <span className="text-2xl font-bold bg-gradient-hero bg-clip-text text-transparent">
+      <span className="text-2xl font-bold text-gradient-hero">
         Artweb
       </span>
     </div>

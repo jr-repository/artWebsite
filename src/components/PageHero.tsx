@@ -47,7 +47,7 @@ const PageHero = ({
           
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             {title}{" "}
-            <span className="bg-gradient-hero bg-clip-text text-transparent">
+            <span className="text-gradient-hero">
               {subtitle}
             </span>
           </h1>

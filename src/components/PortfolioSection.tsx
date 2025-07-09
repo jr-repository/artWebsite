@@ -72,7 +72,7 @@ const PortfolioSection = () => {
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Karya{" "}
-              <span className="bg-gradient-hero bg-clip-text text-transparent">
+              <span className="text-gradient-hero">
                 Terbaik Kami
               </span>
             </h2>
@@ -114,7 +114,7 @@ const PortfolioSection = () => {
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Karya{" "}
-            <span className="bg-gradient-hero bg-clip-text text-transparent">
+            <span className="text-gradient-hero">
               Terbaik Kami
             </span>
           </h2>
