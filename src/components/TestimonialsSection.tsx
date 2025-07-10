@@ -12,15 +12,23 @@ const TestimonialsSection = () => {
     {
       name: "Budi Santoso",
       role: "CEO, Toko Elektronik Jaya",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      image: "https://github.com/jr-repository/folder-image-public/blob/main/1752135086.png?raw=true",
       rating: 5,
       text: "Website toko online yang dibuat Artweb sangat membantu bisnis saya. Desainnya menarik dan mudah digunakan. Penjualan online meningkat 300% setelah website live!",
       project: "E-commerce Website"
     },
     {
+      name: "Sari Dewi",
+      role: "Founder, Catering Sari Rasa",
+      image: "https://github.com/jr-repository/folder-image-public/blob/main/1752135086.png?raw=true",
+      rating: 5,
+      text: "Pelayanan Artweb sangat profesional dan responsif. Website company profile yang dibuat sangat sesuai dengan harapan. Terima kasih tim Artweb!",
+      project: "Company Profile"
+    },
+    {
       name: "Andi Wijaya",
       role: "Freelancer Designer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      image: "https://github.com/jr-repository/folder-image-public/blob/main/1752135086.png?raw=true",
       rating: 5,
       text: "Website portofolio yang dibuat Artweb membantu saya mendapatkan lebih banyak klien. Desainnya modern dan loading-nya cepat. Sangat puas dengan hasilnya!",
       project: "Portfolio Website"
@@ -28,7 +36,7 @@ const TestimonialsSection = () => {
     {
       name: "Maya Putri",
       role: "Marketing Manager, PT Maju Bersama",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      image: "https://github.com/jr-repository/folder-image-public/blob/main/1752135086.png?raw=true",
       rating: 5,
       text: "Landing page yang dibuat Artweb sangat efektif untuk campaign marketing kami. Conversion rate meningkat signifikan. Recommended banget!",
       project: "Landing Page"
@@ -36,7 +44,7 @@ const TestimonialsSection = () => {
     {
       name: "Rizky Pratama",
       role: "Entrepreneur",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+      image: "https://github.com/jr-repository/folder-image-public/blob/main/1752135086.png?raw=true",
       rating: 5,
       text: "Tim Artweb sangat memahami kebutuhan bisnis saya. Website yang dibuat tidak hanya cantik tapi juga fungsional. Great work!",
       project: "Business Website"
@@ -44,7 +52,7 @@ const TestimonialsSection = () => {
     {
       name: "Linda Sari",
       role: "Owner, Boutique Fashion",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+      image: "https://github.com/jr-repository/folder-image-public/blob/main/1752135086.png?raw=true",
       rating: 5,
       text: "Website e-commerce fashion yang dibuat Artweb sangat membantu penjualan online. Interface-nya user-friendly dan mudah di-manage. Terima kasih!",
       project: "Fashion E-commerce"
@@ -67,7 +75,6 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-       
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Apa Kata{" "}
             <span className="text-gradient-hero font-extrabold">
@@ -85,7 +92,10 @@ const TestimonialsSection = () => {
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={30}
             slidesPerView={1}
-            navigation
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }}
             pagination={{ clickable: true }}
             autoplay={{
               delay: 4000,
@@ -145,25 +155,6 @@ const TestimonialsSection = () => {
           </Swiper>
         </div>
 
-        {/* Statistics */}
-        <div className="mt-16 grid md:grid-cols-4 gap-8">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-primary mb-2">50+</div>
-            <div className="text-muted-foreground">Website Selesai</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-primary mb-2">100%</div>
-            <div className="text-muted-foreground">Kepuasan Klien</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-primary mb-2">2 Tahun</div>
-            <div className="text-muted-foreground">Pengalaman</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-primary mb-2">24/7</div>
-            <div className="text-muted-foreground">Support</div>
-          </div>
-        </div>
       </div>
     </section>
   );

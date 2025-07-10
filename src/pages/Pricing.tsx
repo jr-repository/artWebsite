@@ -24,7 +24,6 @@ const Pricing = () => {
       
       <PageHero
         backgroundImage={servicesHero}
-        badge="💰 Harga Terjangkau"
         title="Paket"
         subtitle="Terbaik"
         description="Pilih paket yang sesuai dengan kebutuhan dan budget Anda. Semua paket sudah termasuk hosting dan domain."

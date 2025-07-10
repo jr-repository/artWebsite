@@ -173,13 +173,12 @@ All colors MUST be HSL.
   opacity: 1;
 }
 
-.pricing-swiper .swiper-button-next,
-.pricing-swiper .swiper-button-prev,
+/* Hide Swiper navigation arrows */
+.testimonials-swiper .swiper-button-next,
+.testimonials-swiper .swiper-button-prev,
 .portfolio-swiper .swiper-button-next,
 .portfolio-swiper .swiper-button-prev,
 .blog-swiper .swiper-button-next,
-.blog-swiper .swiper-button-prev,
-.testimonials-swiper .swiper-button-next,
-.testimonials-swiper .swiper-button-prev {
-  color: hsl(var(--primary));
+.blog-swiper .swiper-button-prev {
+  display: none !important;
 }

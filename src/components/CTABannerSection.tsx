@@ -1,6 +1,7 @@
 import { ArrowRight, MessageCircle, Zap, Shield, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import AnimatedStars from "@/components/AnimatedStars";
 
 const CTABannerSection = () => {
   const features = [
@@ -27,9 +28,11 @@ const CTABannerSection = () => {
         }} />
       </div>
       
+      {/* Animated Stars */}
+      <AnimatedStars count={60} className="pointer-events-none" />
+      
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-
           
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6" data-aos="fade-up">
             Siap Wujudkan Website{" "}

@@ -25,10 +25,10 @@ const PricingSection = () => {
         "Mobile Responsive",
         "Contact Form",
         "Basic SEO Setup",
-        "Free Domain (.com/.my.id)",
-        "3 Bulan Hosting",
+        "Free Domain (.com/.id)",
+        "1 Tahun Hosting",
         "SSL Certificate",
-        "Bebas Revisi"
+        "1x Revisi"
       ],
       notIncluded: [
         // "Custom Design",
@@ -51,10 +51,10 @@ const PricingSection = () => {
         "Mobile Responsive",
         "Contact Form & Maps",
         "Advanced SEO Setup",
-        "Free Domain (.com)",
+        "Free Domain (.com/.id)",
         "1 Tahun Hosting",
         "SSL Certificate",
-        "Bebas Revisi",
+        "3x Revisi",
         "Basic Analytics",
         "Social Media Integration",
         "Speed Optimization"
@@ -407,7 +407,7 @@ const PricingSection = () => {
                 Berapa lama waktu pengerjaan?
               </h4>
               <p className="text-muted-foreground">
-                Waktu pengerjaan berbeda untuk setiap paket. Basic (3-4 hari), Professional (4-7 hari), Premium (7-14 hari). Waktu dapat disesuaikan dengan kebutuhan urgent.
+                Waktu pengerjaan berbeda untuk setiap paket. Basic (7-10 hari), Professional (14-21 hari), Premium (21-30 hari). Waktu dapat disesuaikan dengan kebutuhan urgent.
               </p>
             </div>
             <div className="bg-white rounded-lg p-6 shadow-soft">

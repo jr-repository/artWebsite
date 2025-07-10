@@ -52,9 +52,6 @@ const RecentPortfolioSection = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <Badge variant="secondary" className="mb-4">
-              🎨 Portfolio Terbaru
-            </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Karya{" "}
               <span className="text-gradient-hero font-extrabold">
@@ -82,7 +79,6 @@ const RecentPortfolioSection = () => {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12" data-aos="fade-up">
-
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Karya{" "}
             <span className="text-gradient-hero font-extrabold">
@@ -97,42 +93,46 @@ const RecentPortfolioSection = () => {
         {/* Desktop Grid */}
         <div className="hidden sm:grid md:grid-cols-3 gap-8 mb-12">
           {portfolios.map((portfolio, index) => (
-            <Card key={portfolio.id} className="border-none shadow-soft hover:shadow-strong transition-all duration-300 hover:scale-105 group" data-aos="fade-up" data-aos-delay={index * 100}>
-              <div className="relative overflow-hidden rounded-t-lg">
-                <img
-                  src={portfolio.image_url || '/placeholder.svg'}
-                  alt={portfolio.title}
-                  className="w-full aspect-video object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-hero/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute top-4 left-4">
-                  <Badge variant="secondary" className="bg-white/90">
-                    {portfolio.category}
-                  </Badge>
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex space-x-2">
-                    <Button size="sm" variant="secondary" className="bg-white/90">
-                      <Eye className="w-4 h-4" />
-                    </Button>
-                    {portfolio.website_url && (
-                      <Button size="sm" variant="secondary" className="bg-white/90" asChild>
-                        <a href={portfolio.website_url} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
+            <Card key={portfolio.id} className="border-none shadow-soft hover:shadow-strong transition-all duration-300 hover:scale-105 group relative bg-gradient-card overflow-hidden" data-aos="fade-up" data-aos-delay={index * 100}>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+              <div className="absolute inset-0 border border-transparent bg-gradient-to-r from-primary/30 via-transparent to-secondary/30 rounded-lg bg-clip-border" />
+              <div className="relative bg-background rounded-lg m-0.5">
+                <div className="relative overflow-hidden rounded-t-lg">
+                  <img
+                    src={portfolio.image_url || '/placeholder.svg'}
+                    alt={portfolio.title}
+                    className="w-full aspect-video object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-hero/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute top-4 left-4">
+                    <Badge variant="secondary" className="bg-white/90">
+                      {portfolio.category}
+                    </Badge>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="flex space-x-2">
+                      <Button size="sm" variant="secondary" className="bg-white/90">
+                        <Eye className="w-4 h-4" />
                       </Button>
-                    )}
+                      {portfolio.website_url && (
+                        <Button size="sm" variant="secondary" className="bg-white/90" asChild>
+                          <a href={portfolio.website_url} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        </Button>
+                      )}
+                    </div>
                   </div>
                 </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-display font-bold text-foreground mb-2">{portfolio.title}</h3>
+                  <p className="text-muted-foreground mb-4 line-clamp-2 font-sans">{portfolio.description}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground font-sans">{portfolio.client}</span>
+                    <span className="text-sm text-primary font-medium font-sans">{portfolio.year}</span>
+                  </div>
+                </CardContent>
               </div>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-2">{portfolio.title}</h3>
-                <p className="text-muted-foreground mb-4 line-clamp-2">{portfolio.description}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">{portfolio.client}</span>
-                  <span className="text-sm text-primary font-medium">{portfolio.year}</span>
-                </div>
-              </CardContent>
             </Card>
           ))}
         </div>
@@ -143,7 +143,10 @@ const RecentPortfolioSection = () => {
             modules={[Navigation, Pagination]}
             spaceBetween={20}
             slidesPerView={1}
-            navigation
+            navigation={{
+              nextEl: '.portfolio-swiper .swiper-button-next',
+              prevEl: '.portfolio-swiper .swiper-button-prev',
+            }}
             pagination={{ clickable: true }}
             className="portfolio-swiper"
           >

@@ -46,7 +46,9 @@ const ProcessSection = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16" data-aos="fade-up">
-     
+          <Badge variant="secondary" className="mb-4">
+            🔄 Alur Kerja
+          </Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Proses{" "}
             <span className="text-gradient-hero">

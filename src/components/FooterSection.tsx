@@ -132,8 +132,8 @@ const FooterSection = () => {
               © 2024 Artweb. All rights reserved.
             </p>
             <div className="flex items-center space-x-2 text-white/60 text-sm">
-              <span>Design By</span>
-              <span>artWeb.</span>
+              <span>Design by</span>
+              <span>artWeb</span>
             </div>
           </div>
         </div>

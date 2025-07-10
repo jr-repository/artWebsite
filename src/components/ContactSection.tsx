@@ -59,9 +59,6 @@ const ContactSection = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4">
-            📞 Hubungi Kami
-          </Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Mari{" "}
             <span className="text-gradient-hero">
@@ -209,8 +206,49 @@ const ContactSection = () => {
                 />
               </div>
               
-              <Button variant="hero" className="w-full">
-                Kirim Pesan
+              <Button 
+                variant="hero" 
+                className="w-full"
+                onClick={() => {
+                  const nameInput = document.querySelector('input[placeholder="Masukkan nama lengkap"]') as HTMLInputElement;
+                  const emailInput = document.querySelector('input[placeholder="nama@email.com"]') as HTMLInputElement;
+                  const whatsappInput = document.querySelector('input[placeholder="08xxxxxxxxxx"]') as HTMLInputElement;
+                  const serviceSelect = document.querySelector('select') as HTMLSelectElement;
+                  const messageTextarea = document.querySelector('textarea') as HTMLTextAreaElement;
+                  
+                  const name = nameInput?.value || '';
+                  const email = emailInput?.value || '';
+                  const whatsapp = whatsappInput?.value || '';
+                  const service = serviceSelect?.value || '';
+                  const message = messageTextarea?.value || '';
+                  
+                  if (!name || !email || !whatsapp || !service || !message) {
+                    alert('Harap lengkapi semua field!');
+                    return;
+                  }
+                  
+                  const whatsappMessage = `Halo Artweb! 
+
+Saya ingin berkonsultasi untuk pembuatan website.
+
+*Detail Kontak:*
+Nama: ${name}
+Email: ${email}
+WhatsApp: ${whatsapp}
+
+*Layanan yang diinginkan:*
+${service}
+
+*Pesan:*
+${message}
+
+Terima kasih!`;
+                  
+                  const encodedMessage = encodeURIComponent(whatsappMessage);
+                  window.open(`https://wa.me/6287821957335?text=${encodedMessage}`, '_blank');
+                }}
+              >
+                Kirim Pesan via WhatsApp
               </Button>
               
               <p className="text-sm text-muted-foreground text-center">

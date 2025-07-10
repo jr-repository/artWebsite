@@ -3,17 +3,18 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import heroImage from "@/assets/hero-image.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
+import AnimatedStars from "@/components/AnimatedStars";
 
 const HeroSection = () => {
   const features = [
-    "Desain Responsif & Modern",
+    "Desain Modern",
     "SEO Friendly",
     "Gratis Konsultasi",
     "Revisi Unlimited"
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16">
+    <section id="home" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
@@ -24,27 +25,27 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-hero/20"></div>
       </div>
       
+      {/* Animated Stars */}
+      <AnimatedStars count={80} className="pointer-events-none" />
+      
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              {/* <Badge variant="secondary" className="text-primary font-medium">
-                🚀 Jasa Pembuatan Website Profesional
-              </Badge> */}
-              
+              <br />
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                <span className="text-foreground">Bangun Website</span>{" "}
+                <span className="text-foreground text-white">Bangun Website</span>{" "}
                 <span className="text-gradient-hero font-extrabold">
                   Impianmu
                 </span>{" "}
-                <span className="text-foreground">Bersama</span>{" "}
+                <span className="text-foreground text-white">Bersama</span>{" "}
                 <span className="text-gradient-hero font-extrabold">
                   Artweb
                 </span>
               </h1>
               
-              <p className="text-xl text-muted-foreground max-w-lg">
+              <p className="text-xl text-white text-muted-foreground max-w-lg">
                 Layanan profesional untuk pembuatan website personal, bisnis, toko online, 
                 dan custom project. Dapatkan website yang menarik, cepat, dan SEO friendly.
               </p>
@@ -55,7 +56,7 @@ const HeroSection = () => {
               {features.map((feature, index) => (
                 <div key={index} className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-primary" />
-                  <span className="text-foreground font-medium">{feature}</span>
+                  <span className="text-foreground font-medium  text-white">{feature}</span>
                 </div>
               ))}
             </div>
@@ -74,18 +75,18 @@ const HeroSection = () => {
             </div>
 
             {/* Stats */}
-            <div className="flex items-center space-x-8 pt-8">
+            <div className="flex items-center space-x-5 pt-5">
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">50+</div>
-                <div className="text-sm text-muted-foreground">Website Dibuat</div>
+                <div className="text-sm text-muted-foreground  text-white">Website Dibuat</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">100%</div>
-                <div className="text-sm text-muted-foreground">Kepuasan Klien</div>
+                <div className="text-sm text-muted-foreground  text-white">Kepuasan Klien</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">5★</div>
-                <div className="text-sm text-muted-foreground">Rating</div>
+                <div className="text-sm text-muted-foreground  text-white">Rating</div>
               </div>
             </div>
           </div>
@@ -101,13 +102,7 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-hero/10"></div>
             </div>
             
-            {/* Floating Elements */}
-            <div className="absolute -top-4 -right-4 bg-white rounded-lg p-4 shadow-medium">
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-sm font-medium">Website Live</span>
-              </div>
-            </div>
+           
             
             <div className="absolute -bottom-4 -left-4 bg-white rounded-lg p-4 shadow-medium">
               <div className="text-sm font-medium text-muted-foreground">

@@ -9,21 +9,33 @@ import ScrollToTop from "@/components/ScrollToTop";
 import contactHero from "@/assets/contact-hero.jpg";
 
 const Contact = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 100,
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <PageHero
-        backgroundImage={contactHero}
-        badge="📞 Hubungi Kami"
-        title="Mari"
-        subtitle="Berbicara"
-        description="Siap memulai project website Anda? Hubungi kami untuk konsultasi gratis dan dapatkan penawaran terbaik."
-        primaryButton="Chat WhatsApp"
-        secondaryButton="Kirim Email"
-      />
+      <div data-aos="fade-up">
+        <PageHero
+          backgroundImage={contactHero}
+          title="Mari"
+          subtitle="Berbicara"
+          description="Siap memulai project website Anda? Hubungi kami untuk konsultasi gratis dan dapatkan penawaran terbaik."
+          primaryButton="Chat WhatsApp"
+          secondaryButton="Kirim Email"
+        />
+      </div>
 
-      <ContactSection />
+      <div data-aos="fade-up">
+        <ContactSection />
+      </div>
       <FooterSection />
     </div>
   );

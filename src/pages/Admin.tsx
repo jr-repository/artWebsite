@@ -23,6 +23,7 @@ import {
   Settings,
   LogOut
 } from 'lucide-react';
+import ImageUploader from '@/components/ImageUploader';
 
 interface PortfolioItem {
   id: string;
@@ -434,13 +435,11 @@ const Admin = () => {
                           rows={3}
                         />
                       </div>
-                      <div>
-                        <Label htmlFor="image_url">Image URL</Label>
-                        <Input
-                          id="image_url"
+                      <div className="md:col-span-2">
+                        <ImageUploader
+                          label="Project Image"
                           value={portfolioForm.image_url}
-                          onChange={(e) => setPortfolioForm({...portfolioForm, image_url: e.target.value})}
-                          placeholder="https://example.com/image.jpg"
+                          onChange={(url) => setPortfolioForm({...portfolioForm, image_url: url})}
                         />
                       </div>
                       <div>
@@ -610,13 +609,11 @@ const Admin = () => {
                           placeholder="Author name"
                         />
                       </div>
-                      <div>
-                        <Label htmlFor="blog_image">Image URL</Label>
-                        <Input
-                          id="blog_image"
+                      <div className="md:col-span-2">
+                        <ImageUploader
+                          label="Blog Post Image"
                           value={blogForm.image_url}
-                          onChange={(e) => setBlogForm({...blogForm, image_url: e.target.value})}
-                          placeholder="https://example.com/image.jpg"
+                          onChange={(url) => setBlogForm({...blogForm, image_url: url})}
                         />
                       </div>
                       <div>

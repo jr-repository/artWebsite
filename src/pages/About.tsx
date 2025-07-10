@@ -55,7 +55,6 @@ const About = () => {
       
       <PageHero
         backgroundImage={aboutHero}
-        badge="👥 Tentang Kami"
         title="Mengenal"
         subtitle="Artweb"
         description="Tim profesional yang berkomitmen menciptakan solusi website terbaik untuk bisnis Anda di era digital."
@@ -67,9 +66,6 @@ const About = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <Badge variant="secondary" className="mb-4">
-              🎯 Visi & Misi
-            </Badge>
             <h2 className="text-4xl font-bold text-foreground mb-6">
               Menghadirkan{" "}
               <span className="text-gradient-hero">
