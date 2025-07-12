@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Search, Filter, ExternalLink, Eye } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -151,8 +152,10 @@ const PortfolioWithSearch = () => {
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="flex space-x-2">
-                      <Button size="sm" variant="secondary" className="bg-white/90">
-                        <Eye className="w-4 h-4" />
+                      <Button size="sm" variant="secondary" className="bg-white/90" asChild>
+                        <Link to={`/portfolio/${portfolio.id}`}>
+                          <Eye className="w-4 h-4" />
+                        </Link>
                       </Button>
                       {portfolio.website_url && (
                         <Button size="sm" variant="secondary" className="bg-white/90" asChild>

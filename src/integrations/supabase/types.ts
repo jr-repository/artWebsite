@@ -92,9 +92,14 @@ export type Database = {
           client: string | null
           created_at: string
           description: string | null
+          detailed_description: string | null
           featured: boolean | null
+          features: string[] | null
+          gallery_images: string[] | null
           id: string
           image_url: string | null
+          project_duration: string | null
+          team_size: number | null
           title: string
           updated_at: string
           website_url: string | null
@@ -105,9 +110,14 @@ export type Database = {
           client?: string | null
           created_at?: string
           description?: string | null
+          detailed_description?: string | null
           featured?: boolean | null
+          features?: string[] | null
+          gallery_images?: string[] | null
           id?: string
           image_url?: string | null
+          project_duration?: string | null
+          team_size?: number | null
           title: string
           updated_at?: string
           website_url?: string | null
@@ -118,9 +128,14 @@ export type Database = {
           client?: string | null
           created_at?: string
           description?: string | null
+          detailed_description?: string | null
           featured?: boolean | null
+          features?: string[] | null
+          gallery_images?: string[] | null
           id?: string
           image_url?: string | null
+          project_duration?: string | null
+          team_size?: number | null
           title?: string
           updated_at?: string
           website_url?: string | null
